@@ -176,11 +176,22 @@ sudo make restart   # 重啓服務
 1. 直接選擇要通知誰，你可以創建一個 Contact Point，可以粗淺理解成一個 Mailing List，然後你選擇通知某個 Contact Point 即可。
 2. 採用 Notification Policy，基本上 Notification Policies 是個樹狀結構，由 Alert 的 Labels 進行分流，某個 Policy 會有對應的 Contact Point 和 Label Match 的條件，要滿足 Label Match 的條件，他才會觸發這個 Policy 以及嘗試觸發他的 Child Policy。也因此 Notification Policy 可以做到系統化、精緻的 Alert 通知分流。
 
-## 備份、轉移、刪庫
+## 其它操作
+
+### 備份、轉移、刪庫
 
 所有的資料都存放在 `prometheus-data` 和 `grafana-data`，只要把這兩個目錄轉移走，再另一臺主機再 clone 一次本 REPO，再將 COPY 過來的目錄放入本 REPO clone 後的目錄，就可以轉移成功了。不過爲了避免資料受損，請確保轉移前有安全的關閉這兩個服務：`sudo make down`。
 
 同理，刪除 `prometheus-data` 和 `grafana-data` 就可以刪除所有資料，再恢復 `prometheus.yml`，基本上就徹底還原了。
+
+### 維護
+
+讓版本升級只需要修改 `docker-compose.yaml` 中 `image` 的 tag 即可，但是要注意：
+1. 升級前請先備份所有資料。
+2. 不建議跨多個大版本，比如從版本 8 直接跳到版本 11。
+3. 如果情況允許，請你一個版本一個版本升上去，例如你現在是版本 8，先升到版本 9 的第一個正式版，確定沒有問題後，再升到版本 9 的最後一個正式版，檢查過後，再升到版本 10 的第一個正式版，以此類推。
+4. 在每次升級前，最好去看更新公告，看有沒有什麼注意事項以及不再支援的功能，如果有正在使用的話，建議提前拔除。
+5. 當你正在使用的版本 EOL 之後，或是發現重大 CVE 之後，最好立刻升級。
 
 ## 未來可以做的東西
 
