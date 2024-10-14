@@ -6,7 +6,7 @@
 
 實驗環境是 Docker version 27.3.0，因此也並不保證在未來的 Docker 環境下，Docker-Compose 文件和 Docker Engine 的安裝流程不需要修正。
 
-本 REPO 有針對 Prometheus TSDB 進行設定，資料會保存 183 天（半年）；並將資料搜集週期調整爲 5 分鐘一次。
+本 REPO 有針對 Prometheus TSDB 進行設定（在 `docker-compose.yaml` 中 Prometheus 的啓動參數中設置），資料會保存 183 天（半年）；並將資料搜集週期調整爲 5 分鐘一次。
 
 ## Prerequisite
 
