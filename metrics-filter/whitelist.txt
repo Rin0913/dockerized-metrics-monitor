@@ -1,0 +1,3 @@
+pve_memory_size_bytes
+pve_disk_usage_bytes
+pve_disk_size_bytes
