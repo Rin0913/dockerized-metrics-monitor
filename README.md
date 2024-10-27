@@ -147,6 +147,10 @@ sudo make restart   # 重啓服務
 
 而許多開發者都會爲某些特定 Exporter 或特定監控場景（例如監控某個資料庫）特製 Dashboard，並且把它開源到網路上，你可以在 [Grafana Dashboards 官網](https://grafana.com/grafana/dashboards/) 下載並且在 Grafana 中引入他。
 
+這裏提供一個例子，查詢過去一段時間內每天的硬碟使用量增長：
+![](https://i.imgur.com/VKrjQZA.png)
+![](https://i.imgur.com/4v8DDQS.png)
+
 ### 新增 Alerting Rule
 
 #### Alert 的基本設定（1. Enter alert rule name & 5. Add annotations）
