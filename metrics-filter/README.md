@@ -1,6 +1,6 @@
 # metrics-filter
 
-請先將 `.env.sample` 複製至 `.env`，設定其中參數：
+修改 `sample.config`，設定其中參數：
 - `TARGET`：目標 Exporter，例如如果你的 exporter 是 `http://localhost:9090/metrics`，請填入 `http://localhost:9090`；
 - `PORT`：服務要開啓的 Port，預設爲 8000。
 
@@ -9,6 +9,11 @@
 ---
 
 使用方式：
+
+如果想使用 `sample.conf` 來的設定檔來開啓 metric-filter，請執行以下指令（你可以在同一臺主機上開啓多個 instance）：
+```
+python3 main.py -c sample.conf
+```
 
 透過 `http://{server-ip}:{port}/{path}` 來取得 metrics 資料，其中的 {path} 是你原本在 exporter 上使用的 ULR path。
 
